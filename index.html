@@ -3,347 +3,1180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Guenoukpati Malike</title>
+    <title>Portfolio - Guenoukpati Malike</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
-            color: #333;
-            background: #f5f5f5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            overflow-x: hidden;
         }
-        
-        .cv-container {
-            max-width: 900px;
-            margin: 20px auto;
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            min-height: calc(100vh - 40px);
-            box-shadow: 0 0 30px rgba(0,0,0,0.1);
-            background: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
-        
-        .sidebar {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            width: 300px;
-            padding: 30px 25px;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
             display: flex;
-            flex-direction: column;
-        }
-        
-        .profile-section {
-            margin-bottom: 25px;
-        }
-        
-        .profile-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #f39c12;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .profile-description {
-            font-size: 12px;
-            line-height: 1.5;
-            text-align: left;
-        }
-        
-        .section-title {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #f39c12;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .sidebar-section {
-            margin-bottom: 20px;
-        }
-        
-        .skill-item, .quality-item, .language-item, .interest-item {
-            margin-bottom: 6px;
-            font-size: 12px;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding: 30px;
-            background: white;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-            padding: 25px;
-            margin: -30px -30px 25px -30px;
-        }
-        
-        .name {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .title {
-            font-size: 14px;
-            margin-bottom: 12px;
-            opacity: 0.9;
-        }
-        
-        .contact-info {
-            font-size: 12px;
-            line-height: 1.5;
-        }
-        
-        .contact-info div {
-            margin-bottom: 3px;
-        }
-        
-        .experience-section, .formation-section {
-            margin-bottom: 25px;
-        }
-        
-        .section-main-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #f39c12;
-            padding-bottom: 8px;
-        }
-        
-        .job, .formation-item, .project-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        
-        .job:last-child, .formation-item:last-child, .project-item:last-child {
-            border-bottom: none;
-        }
-        
-        .job-title, .formation-title, .project-title {
-            font-size: 14px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 4px;
-        }
-        
-        .company-info, .formation-info {
-            font-size: 12px;
-            color: #7f8c8d;
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-        
-        .job-description, .formation-description, .project-description {
-            font-size: 12px;
-            line-height: 1.5;
-            margin-bottom: 8px;
-        }
-        
-        .achievements, .technologies {
             list-style: none;
-            padding-left: 0;
-            margin-bottom: 8px;
+            gap: 2rem;
         }
-        
-        .achievements li, .technologies li {
-            font-size: 11px;
-            line-height: 1.4;
-            margin-bottom: 3px;
-            padding-left: 12px;
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bg-gradient);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1s ease-out 0.8s both;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
             position: relative;
         }
-        
-        .achievements li:before, .technologies li:before {
-            content: "•";
-            color: #f39c12;
-            font-weight: bold;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: var(--bg-gradient);
+            padding: 2rem;
+            color: white;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
             position: absolute;
             left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--bg-gradient);
         }
-        
-        .github-link {
-            font-size: 11px;
-            color: #3498db;
-            text-decoration: none;
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-left: 2rem;
+            transition: var(--transition);
         }
-        
-        .github-link:hover {
-            text-decoration: underline;
+
+        .timeline-item:hover {
+            transform: translateX(10px);
         }
-        
-        .tech-stack {
-            font-size: 11px;
-            color: #7f8c8d;
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .timeline-company {
+            color: var(--text-light);
+            margin-bottom: 1rem;
             font-style: italic;
-            margin-bottom: 5px;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: var(--bg-light);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-value {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                margin-left: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="cv-container">
-        <div class="sidebar">
-            <div class="profile-section">
-                <div class="profile-title">Profil</div>
-                <div class="profile-description">
-                    Développement d'applications web passionné, actuellement en licence professionnelle en informatique. Fort de compétences en React, Node, Laravel, Django, je suis déterminé à créer des solutions innovantes et performantes. Mon objectif est de contribuer à des projets ambitieux tout en continuant à développer mes compétences techniques et professionnelles.
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">GM</div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-subtitle">Bonjour, je suis</div>
+                <h1 class="hero-title">Guenoukpati Malike</h1>
+                <p class="hero-description">
+                    Développeur d'applications web passionné, spécialisé en React, Node.js, Laravel et Django. 
+                    Je crée des solutions innovantes et performantes.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
                 </div>
             </div>
-            
-            <div class="sidebar-section">
-                <div class="section-title">Compétences</div>
-                <div class="skill-item">LANGAGE : Javascript, PHP, Python</div>
-                <div class="skill-item">Framework: React, Laravel, Django,Node&Express </div>
-                <div class="skill-item">Base données : Wampserver, MongoDB</div>
-            </div>
-            
-            <div class="sidebar-section">
-                <div class="section-title">Qualités</div>
-                <div class="quality-item">Esprit d'équipe</div>
-                <div class="quality-item">Autonomie</div>
-                <div class="quality-item">Créativité</div>
-                <div class="quality-item">Capacité d'adaptation</div>
-                <div class="quality-item">Ambition</div>
-                <div class="quality-item">Respect</div>
-            </div>
-            
-            <div class="sidebar-section">
-                <div class="section-title">Langues</div>
-                <div class="language-item">Français : Langue Maternelle</div>
-                <div class="language-item">Anglais : Intermédiaire</div>
-            </div>
-            
-            <div class="sidebar-section">
-                <div class="section-title">Centres d'intérêt</div>
-                <div class="interest-item">Programmation</div>
-                <div class="interest-item">Voyages</div>
-                <div class="interest-item">Lecture</div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; font-weight: bold;">
+                        GM
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="main-content">
-            <div class="header">
-                <div class="name">Guenoukpati Malike</div>
-                <div class="title">Développeur d'Applications</div>
-                <div class="contact-info">
-                    <div>julienguenoukpati425@gmail.com</div>
-                    <div>+228 98350449</div>
-                    <div>Agoe-nyivé, Lomé, Togo</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">À propos de moi</h2>
+            <p class="section-subtitle fade-in">Développeur passionné avec une forte expertise technique</p>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>
+                        Actuellement en licence professionnelle en informatique à l'IAI-TOGO, je suis un développeur 
+                        d'applications web passionné avec une solide expérience en développement frontend et backend. 
+                        Mon objectif est de contribuer à des projets ambitieux tout en continuant à développer 
+                        mes compétences techniques et professionnelles.
+                    </p>
+                    <br>
+                    <p>
+                        Je maîtrise plusieurs technologies modernes et j'aime créer des solutions innovantes 
+                        qui répondent aux besoins des utilisateurs. Mon approche combine créativité, 
+                        rigueur technique et esprit d'équipe.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item" style="animation-delay: 0.1s;">JavaScript</div>
+                    <div class="skill-item" style="animation-delay: 0.2s;">React</div>
+                    <div class="skill-item" style="animation-delay: 0.3s;">Node.js</div>
+                    <div class="skill-item" style="animation-delay: 0.4s;">Laravel</div>
+                    <div class="skill-item" style="animation-delay: 0.5s;">Django</div>
+                    <div class="skill-item" style="animation-delay: 0.6s;">PHP</div>
+                    <div class="skill-item" style="animation-delay: 0.7s;">Python</div>
+                    <div class="skill-item" style="animation-delay: 0.8s;">MongoDB</div>
                 </div>
             </div>
-            
-            <div class="experience-section">
-                <div class="section-main-title">Expérience</div>
-                
-                <div class="job">
-                    <div class="job-title">STAGIAIRE DÉVELOPPEUR APPLICATION PHARMONE APPLICATION PHARMACEUTIQUE (2025)</div>
-                    <div class="company-info">Genrie Tech | Lomé | Mai 2025 - Aujourd'hui</div>
-                    <div class="job-description">
-                        Technologies: Javascript, React, Node, Express<br>
-                        Création et optimisation d'applications web. Apprentissage garante des garde par heurs d'ouverture des pharmacies et autres
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title fade-in">Mes Projets</h2>
+            <p class="section-subtitle fade-in">Découvrez mes réalisations récentes</p>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">PharmOne - Application Pharmaceutique</h3>
+                        <p class="project-tech">React • Node.js • Express</p>
                     </div>
-                    <div class="tech-stack">Lien github frontend: <a href="https://github.com/ucmy06/pharmacie-frontend" class="github-link">https://github.com/ucmy06/pharmacie-frontend</a></div>
-                    <div class="tech-stack">Lien github Backend: <a href="https://github.com/ucmy06/pharmacie-backend" class="github-link">https://github.com/ucmy06/pharmacie-backend</a></div>
-                </div>
-                
-                <div class="job">
-                    <div class="job-title">STAGIAIRE DÉVELOPPEUR APPLICATION DE GESTION-DES-SCORE-DE-MATCH (2024)</div>
-                    <div class="company-info">Genrie Tech | Lomé | Juin 2024 - Sep. 2024</div>
-                    <div class="job-description">
-                        Technologies: PHP, Javascript,laravel<br>
-                        Application de gestion des score de match permet de gérer les équipes et classements, et aussi:
+                    <div class="project-content">
+                        <p class="project-description">
+                            Application web pour la gestion des pharmacies avec suivi des horaires d'ouverture 
+                            et gestion des stocks pharmaceutiques.
+                        </p>
+                        <a href="https://github.com/ucmy06/pharmacie-frontend" class="project-link">
+                            Voir le projet →
+                        </a>
                     </div>
-                    <ul class="achievements">
-                        <li>Réalisation de tests et débogage des applications avant leur lancement.</li>
-                    </ul>
-                    <div class="tech-stack">Lien github: <a href="https://github.com/ucmy06/gestion-des-score-de-matchs" class="github-link">https://github.com/ucmy06/gestion-des-score-de-matchs</a></div>
-                </div>
-                
-                <div class="job">
-                    <div class="job-title">STAGIAIRE DÉVELOPPEUR</div>
-                    <div class="company-info">Genrie Tech | Lomé | Jul 2023 - Août 2023</div>
-                    <div class="job-description">
-                        J'ai assisté l'équipe de développement dans la création de sites web dynamiques et interactifs.
-                    </div>
-                    <ul class="achievements">
-                        <li>Aide à la conception et au développement de sites web en utilisant HTML, CSS et JavaScript.</li>
-                        <li>Collaboration avec les clients pour comprendre leurs besoins et exigences.</li>
-                    </ul>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-title">PROJET DE GESTION DE CLINIQUE (2025)</div>
-                    <div class="company-info">IAI-TOGO</div>
-                    <div class="tech-stack">Technologies: Python, Django, SQL</div>
-                    <div class="project-description">
-                        Cette application permet de gérer les patients, consultations, médecins, ordonnances, factures et paiements dans une clinique. Accès sécurisés, gestion des Endpoint, authentification lien github: <a href="https://github.com/POO-AVANCE-PROJET-IAI/PROJET-GUENOUKPATI-MALIKE" class="github-link">https://github.com/POO-AVANCE-PROJET-IAI/PROJET-GUENOUKPATI-MALIKE</a>
-                    </div>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-title">SSPIA: SYSTÈME DE SUIVI DES PARCELLES ET INTERVENTIONS AGRICOLES (2025)</div>
-                    <div class="company-info">IAI-TOGO</div>
-                    <div class="tech-stack">Technologies: PHP, Laravel</div>
-                    <div class="project-description">
-                        SSPIA est une application web développée avec le Framework Laravel. Elle permet de gérer efficacement les parcelles agricoles et les interventions associées Ce projet vise à fournir un support solide pour les agriculteurs et les administrateurs, en mettant l'accent sur la traçabilité, la gestion des cultures et l'optimisation des interventions agricoles.
-                    </div>
-                    <div class="tech-stack">Travail en équipe</div>
-                    <div class="tech-stack">Lien github: <a href="https://github.com/Harlequelrah/SSPIA_TP" class="github-link">https://github.com/Harlequelrah/SSPIA_TP</a></div>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-title">GESTION DE CONFÉRENCE (2024)</div>
-                    <div class="company-info">IAI-TOGO</div>
-                    <div class="tech-stack">Technologies: C#, Razor</div>
-                    <div class="project-description">Application de gestion de conférence</div>
-                    <div class="tech-stack">Lien github: <a href="https://github.com/ucmy06/BlazorApp3" class="github-link">https://github.com/ucmy06/BlazorApp3</a></div>
-                </div>
-                
-                <div class="project-item">
-                    <div class="project-title">PLATEFORME WEB DE CONCOURS (2023)</div>
-                    <div class="company-info">IAI-TOGO</div>
-                    <div class="tech-stack">Technologies: PHP, HTML, CSS, Javascript, SQL</div>
-                    <div class="project-description">cette application web permet de gérer les concours Design frontend, espace admin, gestion des utilisateurs.</div>
                 </div>
 
-            </div>
-            
-            <div class="formation-section">
-                <div class="section-main-title">Formation</div>
-                
-                <div class="formation-item">
-                    <div class="formation-title">LICENCE PROFESSIONNELLE EN INFORMATIQUE (EN COURS)</div>
-                    <div class="formation-info">IAI-TOGO - Lomé | Sept. 2022 - Aujourd'hui</div>
-                    <div class="formation-description">
-                        Formation axée sur le développement d'applications web, incluant des projets pratiques et des stages en entreprise.
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Gestion de Clinique</h3>
+                        <p class="project-tech">Python • Django • SQL</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Système complet de gestion hospitalière incluant patients, consultations, 
+                            médecins, ordonnances et facturation avec authentification sécurisée.
+                        </p>
+                        <a href="https://github.com/POO-AVANCE-PROJET-IAI/PROJET-GUENOUKPATI-MALIKE" class="project-link">
+                            Voir le projet →
+                        </a>
                     </div>
                 </div>
-                
-                <div class="formation-item">
-                    <div class="formation-title">BACCALAURÉAT D</div>
-                    <div class="formation-info">Lycée Agoe EST - Lomé | Sept. 2021 - Juin 2022</div>
-                    <div class="formation-description">
-                        Obtention du baccalauréat D avec mention
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">SSPIA - Système Agricole</h3>
+                        <p class="project-tech">PHP • Laravel</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Application de suivi des parcelles et interventions agricoles pour optimiser 
+                            la gestion des cultures et améliorer la traçabilité.
+                        </p>
+                        <a href="https://github.com/Harlequelrah/SSPIA_TP" class="project-link">
+                            Voir le projet →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Gestion de Score de Match</h3>
+                        <p class="project-tech">PHP • Laravel • JavaScript</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Application complète pour la gestion des équipes, matchs, scores et classements 
+                            sportifs avec interface intuitive.
+                        </p>
+                        <a href="https://github.com/ucmy06/gestion-des-score-de-matchs" class="project-link">
+                            Voir le projet →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Gestion de Conférence</h3>
+                        <p class="project-tech">C# • Razor</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Plateforme de gestion d'événements et conférences avec système d'inscription 
+                            et de planification intégré.
+                        </p>
+                        <a href="https://github.com/ucmy06/BlazorApp3" class="project-link">
+                            Voir le projet →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Plateforme de Concours</h3>
+                        <p class="project-tech">PHP • HTML • CSS • JavaScript</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Application web pour l'organisation et la gestion de concours en ligne 
+                            avec espace administrateur et gestion des participants.
+                        </p>
+                        <a href="#" class="project-link">
+                            Voir le projet →
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Mon Expérience</h2>
+            <p class="section-subtitle fade-in">Mon parcours professionnel et académique</p>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Mai 2025 - Aujourd'hui</div>
+                    <h3 class="timeline-title">Stagiaire Développeur - PharmOne</h3>
+                    <div class="timeline-company">Genrie Tech | Lomé</div>
+                    <p class="timeline-description">
+                        Développement d'une application pharmaceutique complète utilisant React et Node.js. 
+                        Création et optimisation d'interfaces utilisateur modernes avec gestion des horaires 
+                        et des stocks de pharmacies.
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Juin 2024 - Sep. 2024</div>
+                    <h3 class="timeline-title">Stagiaire Développeur - Gestion des Scores</h3>
+                    <div class="timeline-company">Genrie Tech | Lomé</div>
+                    <p class="timeline-description">
+                        Développement d'une application de gestion des scores de matchs avec Laravel. 
+                        Implémentation des fonctionnalités de gestion d'équipes, classements et 
+                        réalisation de tests approfondis.
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Jul 2023 - Août 2023</div>
+                    <h3 class="timeline-title">Stagiaire Développeur Web</h3>
+                    <div class="timeline-company">Genrie Tech | Lomé</div>
+                    <p class="timeline-description">
+                        Premier stage en développement web. Assistance à l'équipe dans la création 
+                        de sites dynamiques et interactifs. Apprentissage des bonnes pratiques 
+                        et collaboration avec les clients.
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Sept. 2022 - Aujourd'hui</div>
+                    <h3 class="timeline-title">Licence Professionnelle en Informatique</h3>
+                    <div class="timeline-company">IAI-TOGO | Lomé</div>
+                    <p class="timeline-description">
+                        Formation axée sur le développement d'applications web avec projets pratiques 
+                        et stages en entreprise. Spécialisation en développement full-stack.
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">Sept. 2021 - Juin 2022</div>
+                    <h3 class="timeline-title">Baccalauréat D</h3>
+                    <div class="timeline-company">Lycée Agoe EST | Lomé</div>
+                    <p class="timeline-description">
+                        Obtention du baccalauréat série D avec mention, spécialisation sciences 
+                        et techniques industrielles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title fade-in">Contactez-moi</h2>
+            <p class="section-subtitle fade-in">N'hésitez pas à me contacter pour discuter de vos projets</p>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">@</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value">julienguenoukpati425@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Téléphone</div>
+                            <div class="contact-value">+228 98350449</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Localisation</div>
+                            <div class="contact-value">Agoe-nyivé, Lomé, Togo</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div class="contact-text">
+                            <div class="contact-label">GitHub</div>
+                            <div class="contact-value">github.com/ucmy06</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: var(--card-shadow); text-align: center;">
+                        <h3 style="margin-bottom: 1rem; color: var(--text-dark);">Prêt à collaborer ?</h3>
+                        <p style="color: var(--text-light); margin-bottom: 2rem;">
+                            Je suis toujours ouvert aux nouvelles opportunités et aux projets passionnants. 
+                            Contactez-moi pour discuter de vos idées !
+                        </p>
+                        <a href="mailto:julienguenoukpati425@gmail.com" class="btn btn-primary">
+                            Envoyez-moi un message
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Guenoukpati Malike. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Typing animation for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing animation when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-title');
+            const originalText = heroTitle.textContent;
+            setTimeout(() => {
+                typeWriter(heroTitle, originalText, 150);
+            }, 1000);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Dynamic skill bars animation
+        function animateSkillBars() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateY(0)';
+                    item.style.opacity = '1';
+                }, index * 100);
+            });
+        }
+
+        // Trigger animations when about section is visible
+        const aboutSection = document.querySelector('#about');
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    aboutObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if (aboutSection) {
+            aboutObserver.observe(aboutSection);
+        }
+
+        // Project cards hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+                this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Timeline items stagger animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-50px)';
+            item.style.transition = 'all 0.6s ease-out';
+            timelineObserver.observe(item);
+        });
+
+        // Contact form animation
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach((item, index) => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+                this.style.color = 'white';
+                this.style.borderRadius = '15px';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.background = 'transparent';
+                this.style.color = 'inherit';
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Mobile menu toggle (for responsive design)
+        const createMobileMenu = () => {
+            const nav = document.querySelector('.nav-container');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Create mobile menu button
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.innerHTML = '☰';
+            mobileMenuBtn.style.cssText = `
+                display: none;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--text-dark);
+                cursor: pointer;
+                padding: 0.5rem;
+            `;
+            
+            // Add mobile styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 768px) {
+                    .mobile-menu-btn { display: block !important; }
+                    .nav-links { 
+                        display: none !important;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: white;
+                        flex-direction: column;
+                        padding: 1rem;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    }
+                    .nav-links.mobile-open { display: flex !important; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            nav.appendChild(mobileMenuBtn);
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-open');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('mobile-open');
+                    mobileMenuBtn.innerHTML = '☰';
+                });
+            });
+        };
+
+        // Initialize mobile menu
+        createMobileMenu();
+
+        // Particle animation for background
+        const createParticles = () => {
+            const hero = document.querySelector('.hero');
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+            `;
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    animation: float ${Math.random() * 3 + 2}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 2}s;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                `;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            hero.appendChild(particlesContainer);
+        };
+
+        // Add particle animation
+        createParticles();
+
+        // Performance optimization: Throttle scroll events
+        let ticking = false;
+        function updateOnScroll() {
+            // Navbar background update
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+            
+            // Parallax effect
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.3;
+            
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
+            }
+        });
+
+        // Easter egg: Konami code
+        let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.keyCode === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    // Trigger confetti or special animation
+                    document.body.style.animation = 'rainbow 2s ease-in-out';
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                    }, 2000);
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        // Add rainbow animation for easter egg
+        const rainbowStyle = document.createElement('style');
+        rainbowStyle.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                25% { filter: hue-rotate(90deg); }
+                50% { filter: hue-rotate(180deg); }
+                75% { filter: hue-rotate(270deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(rainbowStyle);
+
+        console.log('🚀 Portfolio loaded successfully! Try the Konami code for a surprise...');
+    </script>
 </body>
 </html>
