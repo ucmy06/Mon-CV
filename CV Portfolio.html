@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Guenoukpati Malike</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .cv-container {
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            min-height: calc(100vh - 40px);
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .sidebar {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            width: 300px;
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .profile-section {
+            margin-bottom: 25px;
+        }
+        
+        .profile-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .profile-description {
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: left;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+        
+        .skill-item, .quality-item, .language-item, .interest-item {
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: white;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 25px;
+            margin: -30px -30px 25px -30px;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 14px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .contact-info div {
+            margin-bottom: 3px;
+        }
+        
+        .experience-section, .formation-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-main-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 8px;
+        }
+        
+        .job, .formation-item, .project-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .job:last-child, .formation-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title, .formation-title, .project-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+        
+        .company-info, .formation-info {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        
+        .job-description, .formation-description, .project-description {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .achievements, .technologies {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 8px;
+        }
+        
+        .achievements li, .technologies li {
+            font-size: 11px;
+            line-height: 1.4;
+            margin-bottom: 3px;
+            padding-left: 12px;
+            position: relative;
+        }
+        
+        .achievements li:before, .technologies li:before {
+            content: "•";
+            color: #f39c12;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .github-link {
+            font-size: 11px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+        
+        .tech-stack {
+            font-size: 11px;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-title">Profil</div>
+                <div class="profile-description">
+                    Développement d'applications web passionné, actuellement en licence professionnelle en informatique. Fort de compétences en React, Node Laravel, et Flutter, je suis déterminé à créer des solutions innovantes et performantes. Mon objectif est de contribuer à des projets ambitieux tout en continuant à développer mes compétences techniques et professionnelles.
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="section-title">Compétences</div>
+                <div class="skill-item">LANGAGE : Javascript, PHP, Python</div>
+                <div class="skill-item">Framework: React, Laravel, Django</div>
+                <div class="skill-item">Base données : SQL, MongoDB</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="section-title">Qualités</div>
+                <div class="quality-item">Esprit d'équipe</div>
+                <div class="quality-item">Autonomie</div>
+                <div class="quality-item">Créativité</div>
+                <div class="quality-item">Capacité d'adaptation</div>
+                <div class="quality-item">Ambition</div>
+                <div class="quality-item">Respect</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="section-title">Langues</div>
+                <div class="language-item">Français : Langue Maternelle</div>
+                <div class="language-item">Anglais : Intermédiaire</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="section-title">Centres d'intérêt</div>
+                <div class="interest-item">Programmation</div>
+                <div class="interest-item">Voyages</div>
+                <div class="interest-item">Lecture</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <div class="name">Guenoukpati Malike</div>
+                <div class="title">Développeur d'Applications</div>
+                <div class="contact-info">
+                    <div>julienguenoukpati425@gmail.com</div>
+                    <div>+228 98350449</div>
+                    <div>Agoe-nyivé, Lomé, Togo</div>
+                </div>
+            </div>
+            
+            <div class="experience-section">
+                <div class="section-main-title">Expérience</div>
+                
+                <div class="job">
+                    <div class="job-title">STAGIAIRE DÉVELOPPEUR APPLICATION PHARMONE APPLICATION PHARMACEUTIQUE (2025)</div>
+                    <div class="company-info">Genrie Tech | Lomé | Mai 2025 - Aujourd'hui</div>
+                    <div class="job-description">
+                        Technologies: Javascript, React, Node, Express<br>
+                        Création et optimisation d'applications web. Apprentissage garante des garde par heurs d'ouverture des pharmacies et autres
+                    </div>
+                    <div class="tech-stack">Lien github: <a href="https://github.com/ucmy06/pharmacie-frontend" class="github-link">https://github.com/ucmy06/pharmacie-frontend</a></div>
+                    <div class="tech-stack">Lien github Backend: <a href="https://github.com/ucmy06/pharmacie-backend" class="github-link">https://github.com/ucmy06/pharmacie-backend</a></div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">STAGIAIRE DÉVELOPPEUR APPLICATION DE GESTION-DES-SCORE-DE-MATCH (2024)</div>
+                    <div class="company-info">Genrie Tech | Lomé | Juin 2024 - Sep. 2024</div>
+                    <div class="job-description">
+                        Technologies: PHP, Javascript,laravel<br>
+                        Application de gestion des score de match permet de gérer les équipes et classements, et aussi:
+                    </div>
+                    <ul class="achievements">
+                        <li>Réalisation de tests et débogage des applications avant leur lancement.</li>
+                    </ul>
+                    <div class="tech-stack">Lien github: <a href="https://github.com/ucmy06/gestion-des-score-de-matchs" class="github-link">https://github.com/ucmy06/gestion-des-score-de-matchs</a></div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-title">STAGIAIRE DÉVELOPPEUR</div>
+                    <div class="company-info">Genrie Tech | Lomé | Jul 2023 - Août 2023</div>
+                    <div class="job-description">
+                        J'ai assisté l'équipe de développement dans la création de sites web dynamiques et interactifs.
+                    </div>
+                    <ul class="achievements">
+                        <li>Aide à la conception et au développement de sites web en utilisant HTML, CSS et JavaScript.</li>
+                        <li>Collaboration avec les clients pour comprendre leurs besoins et exigences.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">PROJET DE GESTION DE CLINIQUE (2025)</div>
+                    <div class="company-info">1st togo</div>
+                    <div class="tech-stack">Technologies: Python, Django, SQL</div>
+                    <div class="project-description">
+                        Cette application permet de gérer les patients, consultations, médecins, ordonnances, factures et paiements dans une clinique. Accès sécurisés, gestion des Endpoint, authentification lien github: <a href="https://github.com/ucmy06/ODP-AVANCE-GX/PROJET-GUENOUKPATI-MALIK" class="github-link">https://github.com/ucmy06/ODP-AVANCE-GX/PROJET-GUENOUKPATI-MALIK</a>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">SSPIA: SYSTÈME DE SUIVI DES PARCELLES ET INTERVENTIONS AGRICOLES (2025)</div>
+                    <div class="company-info">1st togo</div>
+                    <div class="tech-stack">Technologies: PHP, Laravel</div>
+                    <div class="project-description">
+                        SSPIA est une application web développée avec le Framework Laravel. Elle permet de gérer efficacement les parcelles agricoles et les interventions associées Ce projet vise à fournir un support solide pour les agriculteurs et les administrateurs, en mettant l'accent sur la traçabilité, la gestion des cultures et l'optimisation des interventions agricoles.
+                    </div>
+                    <div class="tech-stack">Travail en équipe</div>
+                    <div class="tech-stack">Lien github: <a href="https://github.com/HarleouKelva/SSPIA-TP" class="github-link">https://github.com/HarleouKelva/SSPIA-TP</a></div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">GESTION DE CONFÉRENCE (2024)</div>
+                    <div class="company-info">1st togo</div>
+                    <div class="tech-stack">Technologies: C#, Razor</div>
+                    <div class="project-description">Application de gestion de conférence</div>
+                    <div class="tech-stack">Lien github: <a href="https://github.com/ucmy06/RazorApp3" class="github-link">https://github.com/ucmy06/RazorApp3</a></div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">PLATEFORME WEB DE CONCOURS (2023)</div>
+                    <div class="company-info">1st togo</div>
+                    <div class="tech-stack">Technologies: PHP, HTML, CSS, Javascript, SQL</div>
+                    <div class="project-description">cette application web permet de gérer les concours Design frontend, espace admin, gestion des utilisateurs.</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">GESTION-DES-SCORE-DE-MATCH</div>
+                </div>
+            </div>
+            
+            <div class="formation-section">
+                <div class="section-main-title">Formation</div>
+                
+                <div class="formation-item">
+                    <div class="formation-title">LICENCE PROFESSIONNELLE EN INFORMATIQUE (EN COURS)</div>
+                    <div class="formation-info">1st Togo - Lomé | Sept. 2022 - Aujourd'hui</div>
+                    <div class="formation-description">
+                        Formation axée sur le développement d'applications web, incluant des projets pratiques et des stages en entreprise.
+                    </div>
+                </div>
+                
+                <div class="formation-item">
+                    <div class="formation-title">BACCALAURÉAT D</div>
+                    <div class="formation-info">Lycée Agoe Exi - Lomé | Sept. 2021 - Juin 2022</div>
+                    <div class="formation-description">
+                        Formation générale avec une spécialisation en sciences et technologies.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
